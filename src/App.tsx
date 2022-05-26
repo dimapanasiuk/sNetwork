@@ -1,11 +1,12 @@
 import React from 'react';
+import NavBar from './components/Navbar';
+import Main from './layouts/Main';
 
-function App() {
-  return (
-    <div className="App">
-      Social Network
-    </div>
-  );
-}
+const App:React.FC = () => (
+  <>
+    <NavBar />
+    <Main />
+  </>
+);
 
 export default App;

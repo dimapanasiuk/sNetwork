@@ -1,5 +1,5 @@
 import React from 'react';
 
-const NavBar: React.FC = () => (<div>hello world</div>);
+const NavBar: React.FC = () => (<div>NavBar</div>);
 
 export default NavBar;
