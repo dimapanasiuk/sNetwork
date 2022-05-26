@@ -5,40 +5,36 @@ import {
   Route,
   // Navigate,
 } from 'react-router-dom';
-// import Chat from '../../pages/Chat/Chat';
 import {
 // CHAT_ROUTE,
-  LOGIN_ROUTE,
+// LOGIN_ROUTE,
 } from '../../router/constants';
-import {
-  // privateRoutes,
-  publicRoutes,
-  // publicRoutes,
-} from '../../router/rotutes';
-// import { IRoutes } from '../../router/interfaces';
-import Login from '../../pages/Login/Login';
-// import Chat from '../../pages/Chat/Chat';
+import { privateRoutes, publicRoutes } from '../../router/rotutes';
+import { IRoutes } from '../../router/interfaces';
 
-// const getRoutes = (routes: Array<IRoutes>) => routes.map(({ path, Component }) => (
-//   <Route path={path} element={<Component />} />
-// ));
+const getRoutes = (routes: Array<IRoutes>) => routes.map(({ path, Component }) => (
+  <Route path={path} element={<Component />} />
+));
 
 const Main: React.FC = () => {
   const isUser = false;
   console.log(isUser);
-  // console.log(getRoutes(privateRoutes));
-  // getRoutes(publicRoutes);
+
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path={LOGIN_ROUTE} element={<Login />} />
-        {/* {getRoutes(privateRoutes)} */}
-
-        {publicRoutes.map(({ path, Component }) => (
-          <Route path={path} element={<Component />} />
-        ))}
-        {/* <Route index element={<h1>2</h1>} /> */}
-      </Routes>
+      {
+          isUser ? (
+            <Routes>
+              {getRoutes(privateRoutes)}
+              {/* <Navigate to={LOGIN_ROUTE} /> */}
+            </Routes>
+          ) : (
+            <Routes>
+              {getRoutes(publicRoutes)}
+              {/* <Navigate to={LOGIN_ROUTE} /> */}
+            </Routes>
+          )
+        }
     </BrowserRouter>
   );
 };
